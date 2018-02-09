@@ -45,7 +45,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 51
+  controlID: 49
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 52
+  controlID: 50
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 53
+  controlID: 51
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: /home/schneemanch/Documents/Unity/Casino Royale
+  m_LastProjectPath: /home/schneemanch/Documents/Unity/Casino-Royale
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
@@ -485,9 +485,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2a330000
-    m_LastClickedID: 13098
-    m_ExpandedIDs: 94eeffff1ef4ffff6ef5ffff9efbffff0000000062330000
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 8afaffff9efbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -506,7 +506,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 0}
     m_SearchString: 
   m_ExpandedScenes:
-  - Character_Select_Screen
+  - Casino Floor Level
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -538,14 +538,14 @@ MonoBehaviour:
     height: 680
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 2146.0041840076447
+  lastFramingTime: 67.61466407775879
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 953.8426, y: -576.38043, z: 2912.8418}
+    m_Target: {x: 17.23317, y: 21.988443, z: -29.065052}
     speed: 2
-    m_Value: {x: 953.8426, y: -576.38043, z: 2912.8418}
+    m_Value: {x: 17.23317, y: 21.988443, z: -29.065052}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -569,13 +569,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.1524637, y: 0.05629608, z: -0.008699181, w: 0.9866661}
+    m_Target: {x: -0.0019695498, y: -0.987023, z: 0.16010728, w: -0.012142195}
     speed: 2
-    m_Value: {x: 0.1524637, y: 0.05629608, z: -0.008699181, w: 0.9866661}
+    m_Value: {x: -0.0019695498, y: -0.987023, z: 0.16010728, w: -0.012142195}
   m_Size:
-    m_Target: 4124.665
+    m_Target: 24.027153
     speed: 2
-    m_Value: 4124.665
+    m_Value: 24.027153
   m_Ortho:
     m_Target: 0
     speed: 2

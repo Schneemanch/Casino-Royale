@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Character_Select_Screen.unity
+- path: Assets/Casino Floor Level.unity
   isLoaded: 1
   isActive: 1
