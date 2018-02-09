@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Casino Floor Level.unity
-  isLoaded: 1
-  isActive: 1
