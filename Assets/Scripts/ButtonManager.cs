@@ -21,6 +21,11 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    public void CharacterSelect()
+    {
+        SceneManager.LoadScene(3);
+    }
+
     public void QuitGame()
     {
 
