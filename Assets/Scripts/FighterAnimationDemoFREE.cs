@@ -13,18 +13,16 @@ public class FighterAnimationDemoFREE : MonoBehaviour {
 
 	void Start()
 	{
-		cam = GameObject.FindWithTag("MainCamera");
-		defaultCamTransform = cam.transform;
-		resetPos = defaultCamTransform.position;
-		resetRot = defaultCamTransform.rotation;
+
 		fighter = GameObject.FindWithTag("Player");
-		fighter.transform.position = new Vector3(0,0,0);
+		
 	}
 
 	void OnGUI () 
 	{
 
-		if (GUI.RepeatButton (new Rect (200, 575, 50, 50), "->")) 
+
+		if (GUI.RepeatButton (new Rect (Screen.width/6, Screen.height - Screen.height/10, Screen.width/16, Screen.height/12), "Walk Forward")) 
 		{
 			animator.SetBool("Walk Forward", true);
 		}
@@ -33,7 +31,7 @@ public class FighterAnimationDemoFREE : MonoBehaviour {
 			animator.SetBool("Walk Forward", false);
 		}
 
-		if (GUI.RepeatButton (new Rect (125, 575, 50, 50), "<-")) 
+		if (GUI.RepeatButton (new Rect (Screen.width/12, Screen.height - Screen.height/10, Screen.width / 16, Screen.height / 12), "Walk Backward")) 
 		{
 			animator.SetBool("Walk Backward", true);
 		}
@@ -42,7 +40,7 @@ public class FighterAnimationDemoFREE : MonoBehaviour {
 			animator.SetBool("Walk Backward", false);
 		}
 
-		if (GUI.Button (new Rect (800, 575, 50, 50), "Punch")) 
+		if (GUI.Button (new Rect (Screen.width - Screen.width/10, Screen.height - Screen.height/10, Screen.width / 16, Screen.height / 12), "Punch")) 
 		{
 			animator.SetTrigger("PunchTrigger");
 		}
