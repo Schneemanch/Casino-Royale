@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 2e7bf0ede1b2d45d4ad02315bc505748
-timeCreated: 1520140200
+guid: 254927c2e8b7342c7bac78ec4092b039
+timeCreated: 1520302381
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -427,7 +427,7 @@ ModelImporter:
     400418: upper_arm.R
     2100000: Material.001
     4300000: Cube
-    7400000: metarig|StartToIdle
+    7400000: metarig|metarigAction
     9500000: //RootNode
     13700000: Cube
   externalObjects: {}

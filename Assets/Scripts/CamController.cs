@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CamController : MonoBehaviour {
+	public Transform leftTarget;
+	public Transform rightTarget;
 
-	public GameObject Male;
-
-	//offset is the difference 
-	private Vector3 offset;
-		//private Vector3 zStopper;
-
-	// Use this for initialization
-	void Start () {
-		offset = transform.position - Male.transform.position;
-		//zStopper = Mathf.Clamp(Male.transform.position.z, 0, 0);
-	}
+	public float minDistance;
 	
 	//Runs every frame just like update, but it runs after all other items run for update
 	//Thus camera in sure to move AFTER character has moved
 
 	void LateUpdate () {
-		transform.position = Male.transform.position + offset;
+		float distanceBetweenTargets = Mathf.Abs (leftTarget.position.x - rightTarget.position.x) * 2;
+		float centerPosition = (leftTarget.position.x + rightTarget.position.x) / 2;
+
+		transform.position = new Vector3 (
+			centerPosition, transform.position.y,
+			distanceBetweenTargets > minDistance? -distanceBetweenTargets: -minDistance
+		);
+		
+		//transform.position = Male.transform.position + offset;
 	}
 }
