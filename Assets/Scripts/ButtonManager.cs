@@ -8,22 +8,26 @@ public class ButtonManager : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        //go to character select screen
+        SceneManager.LoadScene(3);
     }
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene(0);
+        //go back to the main menu
+        SceneManager.LoadScene(2);
     }
 
     public void OptionsMenu()
     {
-        SceneManager.LoadScene(2);
+        //go to the options menu
+        SceneManager.LoadScene(4);
     }
 
     public void CharacterSelect()
     {
-        SceneManager.LoadScene(3);
+        //go to the first stage after selecting a character
+        SceneManager.LoadScene(5);
     }
 
     public void QuitGame()

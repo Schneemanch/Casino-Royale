@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {
 
-    public Fighter player1;
-    public Fighter player2;
+    public Fighter Player1;
+    public Fighter Player2;
 
     public Text player1Tag;
     public Text player2Tag;
@@ -22,8 +22,8 @@ public class HUDController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        player1Tag.text = player1.fighterName;
-        player2Tag.text = player2.fighterName;
+        player1Tag.text = Player1.fighterName;
+        player2Tag.text = Player2.fighterName;
 	}
 	
 	// Update is called once per frame
@@ -32,11 +32,11 @@ public class HUDController : MonoBehaviour
 
         timerText.text = battle.roundTime.ToString();
 
-		if(leftBar.size > player1.currentHealth)
+		if(leftBar.size > Player1.currentHealth)
         {
             leftBar.size -= 0.01f;
         }
-        if(rightBar.size > player2.currentHealth)
+        if(rightBar.size > Player2.currentHealth)
         {
             rightBar.size -= 0.01f;
         }
