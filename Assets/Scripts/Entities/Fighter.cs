@@ -15,12 +15,13 @@ public class Fighter : MonoBehaviour {
 
 	protected Animator animator;
 	private Rigidbody myBody;
+	private AudioSource audioPlayer;
 
 	// Use this for initialization
 	void Start () {
 		myBody = GetComponent<Rigidbody>();
 		animator = GetComponent<Animator>();
-		
+		audioPlayer = GetComponent<AudioSource>();
 	}
 
 	//These are purely for testing, since we have no swipe controls
@@ -31,6 +32,13 @@ public class Fighter : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.D)){
 			animator.SetTrigger("DodgeFdTrigger");
 		}
+		/*
+		if (Input.GetAxis ("Horizontal") > 0.1){
+			animator.SetBool ("DodgeFdTrigger", true);
+		}
+		else{
+			animator.SetBool ("DodgeFdTrigger", false);
+		}*/
 		if (Input.GetKeyDown (KeyCode.A)){
 			animator.SetTrigger("DodgeBkTrigger");
 		}
@@ -61,6 +69,27 @@ public class Fighter : MonoBehaviour {
 					UpdateHumanInput ();
 			}
 		// */
+
+		if (health <= 0){
+			animator.SetTrigger("Dead");
+		}
+	}
+	
+	public void playSound(AudioClip sound){
+		GameUtils.playSound (sound, audioPlayer);
+	}
+
+	public virtual void hurt(float damage){
+		if (health >= damage){
+			health -= damage;
+		}
+		else{
+			health = 0;
+		}
+
+		if (health > 0){
+			animator.SetTrigger("Hit");
+		}
 	}
 
 	public float currentHealth{

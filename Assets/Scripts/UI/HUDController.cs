@@ -22,6 +22,7 @@ public class HUDController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        //I switched the player fighter name to reflect on the HUD better, may need to swp health as well
         player1Tag.text = Player1.fighterName;
         player2Tag.text = Player2.fighterName;
 	}

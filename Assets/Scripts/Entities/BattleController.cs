@@ -10,6 +10,10 @@ public class BattleController : MonoBehaviour
 
     public HUDController hud;
 
+    public AudioSource musicPlayer;
+    public AudioClip backgroundMusic;
+    private bool battleStarted;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -19,6 +23,10 @@ public class BattleController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (!battleStarted){
+            battleStarted = true;
+            GameUtils.playSound(backgroundMusic, musicPlayer);
+        }
 		if(roundTime > 0 && Time.time - lastTimeUpdate > 1)
         {
             roundTime--;
