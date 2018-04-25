@@ -17,6 +17,10 @@ public class Fighter : MonoBehaviour {
 	private Rigidbody myBody;
 	private AudioSource audioPlayer;
 
+    // For AI?? o.O
+    private float random;
+    private float randomSetTime;
+
 	// Use this for initialization
 	void Start () {
 		myBody = GetComponent<Rigidbody>();
@@ -52,6 +56,29 @@ public class Fighter : MonoBehaviour {
 			animator.SetTrigger("Bock");
 		}
 	}
+
+    void UpdateAIInput()
+    {
+        //TODO set some starting booleans i assume?
+        animator.SetBool("enable",enabled);
+        animator.SetFloat("distanceToOpponent", getDistanceToOpponent());
+        if(animator.GetFloat("distanceToOpponent") > 2.0)
+        {
+            // WHY DOESNT THIS WORK
+            animator.SetBool("DodgeFd", true);
+        } else
+        {
+            animator.SetBool("DodgeFd", false);
+        }
+
+        if(Time.time - randomSetTime > 1)
+        {
+            random = Random.value;
+            randomSetTime = Time.time;
+        }
+        animator.SetFloat("random", random);
+    }
+
 	//*/
 	// Update is called once per frame
 	void Update () {
@@ -65,10 +92,12 @@ public class Fighter : MonoBehaviour {
 		}
 		//This is also associated with the keyboard testing
 		///*
-			if (player == PlayerType.HUMAN){
-					UpdateHumanInput ();
-			}
-		// */
+		if (player == PlayerType.HUMAN){
+			UpdateHumanInput ();
+		}
+        else { // Allows AI input
+            UpdateAIInput();
+        }
 
 		if (health <= 0){
 			animator.SetTrigger("Dead");
@@ -103,4 +132,10 @@ public class Fighter : MonoBehaviour {
 			return this.myBody;
 		}
 	}
+    
+    // Directly from youtube series
+    private float getDistanceToOpponent()
+    {
+        return Mathf.Abs(transform.position.x - opponent.transform.position.x);
+    }
 }
