@@ -4,22 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/404_Splash_Screen.unity
-    guid: 26eb3aa6c8a16124d95faf0c236b8e7c
-  - enabled: 1
-    path: Assets/Scenes/CasinoRoyaleSplashScreen.unity
-    guid: 13568ac0d59d1d94982b59b1d7dafcfb
-  - enabled: 1
-    path: Assets/Scenes/Game Control Screens/MainMenu.unity
-    guid: 70010b8df5926564b8c460f1670230da
-  - enabled: 1
-    path: Assets/Scenes/Game Control Screens/Character_Select_Screen.unity
-    guid: 4c6b8bff8bce8874dbd59a48418d028e
-  - enabled: 1
-    path: Assets/Scenes/Game Control Screens/Options_Menu.unity
-    guid: 0cfa14614da8cef4990cff73eb1e3b8e
-  - enabled: 1
-    path: Assets/Scenes/Casino Floor Level.unity
-    guid: f005d6be1744b4f60b8d9eacc364b2d9
+  m_Scenes: []
