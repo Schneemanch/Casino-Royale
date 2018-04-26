@@ -21,13 +21,15 @@ public class FighterStateBehavior : StateMachineBehaviour {
 			if (soundEffect != null){
 				fighter.playSound(soundEffect);
 			}
-			fighter.body.AddRelativeForce (new Vector3 (0, verticalForce, 0));
-		}
-	
-	// Update is called once per frame
-	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-			fighter.body.AddRelativeForce (new Vector3 (0, 0, horizontalForce));
-			//fighter.body.AddRelativeForce (new Vector3 (testForce, 0, 0));
-			//fighter.body.AddRelativeForce (new Vector3 (0, verticalForce, 0));
-		}
+        fighter.body.AddRelativeForce (new Vector3 (0, verticalForce, 0));
+
+    }
+
+    // Update is called once per frame
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        fighter.body.AddRelativeForce (new Vector3 (0, 0, horizontalForce));
+        //fighter.body.AddRelativeForce(new Vector3(0, horizontalForce, 0));
+        //fighter.body.AddRelativeForce (new Vector3 (testForce, 0, 0));
+        //fighter.body.AddRelativeForce (new Vector3 (0, verticalForce, 0));
+    }
 }

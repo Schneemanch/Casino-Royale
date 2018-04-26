@@ -21,6 +21,9 @@ public class Fighter : MonoBehaviour {
     private float random;
     private float randomSetTime;
 
+    //Testing movement
+    //public float mSpeed;
+
 	// Use this for initialization
 	void Start () {
 		myBody = GetComponent<Rigidbody>();
@@ -59,18 +62,23 @@ public class Fighter : MonoBehaviour {
 
     void UpdateAIInput()
     {
-        //TODO set some starting booleans i assume?
+        //TODO: Rework the if statements logic
         animator.SetBool("enable",enabled);
         animator.SetFloat("distanceToOpponent", getDistanceToOpponent());
-        if(animator.GetFloat("distanceToOpponent") > 2.0)
+    
+        if(animator.GetFloat("distanceToOpponent") > 1.5) // Far
         {
             // WHY DOESNT THIS WORK
             animator.SetBool("DodgeFd", true);
-        } else
+        } else // Close
         {
             animator.SetBool("DodgeFd", false);
+            if (animator.GetFloat("health") < 0.1) {
+                animator.SetBool("DodgeBk", true);
+            }
         }
 
+        // Random function to prevent machine punching/kicking
         if(Time.time - randomSetTime > 1)
         {
             random = Random.value;
@@ -99,8 +107,10 @@ public class Fighter : MonoBehaviour {
             UpdateAIInput();
         }
 
-		if (health <= 0){
-			animator.SetTrigger("Dead");
+		if (health <= 0 && !animator.GetBool("Dead")){
+			animator.SetBool("Dead", true);
+            // This works, hilariously....
+            animator.Play("Knockout");
 		}
 	}
 	
