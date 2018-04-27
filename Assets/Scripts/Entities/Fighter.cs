@@ -14,6 +14,7 @@ public class Fighter : MonoBehaviour {
 	public PlayerType player;
 
 	protected Animator animator;
+    protected Animation animation;
 	private Rigidbody myBody;
 	private AudioSource audioPlayer;
 
@@ -28,6 +29,7 @@ public class Fighter : MonoBehaviour {
 	void Start () {
 		myBody = GetComponent<Rigidbody>();
 		animator = GetComponent<Animator>();
+        animation = GetComponent<Animation>();
 		audioPlayer = GetComponent<AudioSource>();
 	}
 
@@ -57,7 +59,13 @@ public class Fighter : MonoBehaviour {
 		}
 		if (Input.GetKeyDown (KeyCode.B)){
 			animator.SetTrigger("Bock");
+            animator.SetBool("isBlocking", true);
 		}
+        // Need this for blocking hopefully
+        if (Input.GetKeyUp(KeyCode.B)){
+            animator.SetBool("isBlocking", false);
+            animator.ResetTrigger("Bock");
+        }
 	}
 
     void UpdateAIInput()
@@ -70,12 +78,19 @@ public class Fighter : MonoBehaviour {
         {
             // WHY DOESNT THIS WORK
             animator.SetBool("DodgeFd", true);
+            animator.SetTrigger("DodgeFdTrigger");
         } else // Close
         {
             animator.SetBool("DodgeFd", false);
             if (animator.GetFloat("health") < 0.1) {
                 animator.SetBool("DodgeBk", true);
             }
+            /*
+            if(animator.GetFloat("health") < 0.5)
+            {
+                animator.SetTrigger("Bock");
+            }
+            */
         }
 
         // Random function to prevent machine punching/kicking
@@ -118,10 +133,22 @@ public class Fighter : MonoBehaviour {
 		GameUtils.playSound (sound, audioPlayer);
 	}
 
+    //WHERE IS THIS FUNCTION CALLED
+    //Adding block functionality
 	public virtual void hurt(float damage){
-		if (health >= damage){
-			health -= damage;
-		}
+        
+	   if (health >= damage){
+
+            // Maybe reduce damage by more than 75%?
+            if (animator.GetBool("isBlocking"))
+            {
+                health -= damage/4;
+            }
+            else
+            {
+                health -= damage;
+            }
+        }
 		else{
 			health = 0;
 		}
@@ -129,7 +156,7 @@ public class Fighter : MonoBehaviour {
 		if (health > 0){
 			animator.SetTrigger("Hit");
 		}
-	}
+    }
 
 	public float currentHealth{
 		get{

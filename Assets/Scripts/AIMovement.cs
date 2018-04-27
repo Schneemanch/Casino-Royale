@@ -22,6 +22,8 @@ public class AIMovement : MonoBehaviour {
         } else {
 
         }
+
+        // This is not working
         if (animator.GetBool("DodgeBk"))
         {
             transform.Translate(0f, 0f, -mSpeed * Time.deltaTime);
