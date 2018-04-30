@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Fighter : MonoBehaviour {
 	public enum PlayerType{
@@ -12,6 +13,8 @@ public class Fighter : MonoBehaviour {
 	public string fighterName;
 	public Fighter opponent;
 	public PlayerType player;
+
+    public float movementSpeed = 5;
 
 	protected Animator animator;
     protected Animation animation;
@@ -67,6 +70,46 @@ public class Fighter : MonoBehaviour {
             animator.ResetTrigger("Bock");
         }
 	}
+
+    void OnGUI()
+    {
+
+        //GUI Button to move forward
+        if (GUI.RepeatButton(new Rect(Screen.width / 6, Screen.height - Screen.height / 10, Screen.width / 16, Screen.height / 12), "Forward"))
+        {
+            //plays the move forward animation when this gui button is pressed
+            animator.SetTrigger("DodgeFdTrigger");
+            //moves the player character forwards
+            transform.position += Vector3.left * Time.deltaTime * movementSpeed;
+
+        }
+
+        //GUI Button to move backwards
+        if (GUI.RepeatButton(new Rect(Screen.width / 12, Screen.height - Screen.height / 10, Screen.width / 16, Screen.height / 12), "Back"))
+        {
+            //plays the dodge back animation when this gui button is pressed
+            animator.SetTrigger("DodgeBkTrigger");
+            //moves the player character backwards
+            transform.position += Vector3.right * Time.deltaTime * movementSpeed;
+        }
+
+        //BUI button to punch
+        if (GUI.Button(new Rect(Screen.width - Screen.width / 10, Screen.height - Screen.height / 10, Screen.width / 16, Screen.height / 12), "Punch"))
+        {
+            animator.SetTrigger("PunchTrigger");
+        }
+        //GUI button to kick
+        if (GUI.Button(new Rect(Screen.width - Screen.width / 5, Screen.height - Screen.height / 10, Screen.width / 16, Screen.height / 12), "Kick"))
+        {
+            animator.SetTrigger("KickTrigger");
+        }
+        //GUI button to quit back to the main menu
+        if (GUI.Button(new Rect(Screen.width / 30, Screen.height / 30, Screen.width / 20, Screen.height / 20), "Quit"))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
+    }
 
     void UpdateAIInput()
     {
@@ -126,7 +169,11 @@ public class Fighter : MonoBehaviour {
 			animator.SetBool("Dead", true);
             // This works, hilariously....
             animator.Play("Knockout");
+
+            
 		}
+
+        
 	}
 	
 	public void playSound(AudioClip sound){
@@ -149,7 +196,8 @@ public class Fighter : MonoBehaviour {
                 health -= damage;
             }
         }
-		else{
+		else
+        {
 			health = 0;
 		}
 
